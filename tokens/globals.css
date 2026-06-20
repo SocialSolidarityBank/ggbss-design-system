@@ -1,0 +1,195 @@
+/* v2 디자인 토큰 (컬러·폰트) 만 alias 로 적용
+ * — utility class (bg-*, t-*, card 등) 는 도입하지 않음
+ * — 호출처 (page.module.css 등) 의 var(--color-*), var(--text-*), var(--card-*) 식별자는 그대로 유지
+ *   값만 v2 토큰의 alias 가 되어 시각 톤이 v2 와 정렬
+ * — v2 source: web/app/_v2/tokens.css */
+:root {
+  /* 5색 팔레트 — v2 와 hex 동일 (시각 변화 0) */
+  --color-primary: var(--c-primary);
+  --color-secondary: var(--c-grey);
+  --color-white: var(--c-canvas);
+  --color-bg-dark: var(--c-dark-blue);
+  --color-accent: var(--c-sky);
+
+  /* Theme Semantic — v2 alias (제목/본문/라인 톤이 v2 로 정렬됨) */
+  --bg: var(--c-canvas);
+  --card-bg: var(--c-canvas);
+  --card-border: var(--c-line-soft);
+  --text-main: var(--c-ink-deep);
+  --text-muted: var(--c-body);
+  --text-highlight: var(--c-primary);
+  --shadow: var(--sh-soft);
+  --border-accent: var(--c-primary);
+  /* 리스트 bullet 단일 토큰 — 전 서비스 모든 bullet(•·::marker)은 이 토큰만 사용 (design.md §4).
+   * 다크에선 sky 로 재고정(아래 다크 블록) — primary 는 다크 배경에서 묻힘. */
+  --bullet-color: var(--c-primary);
+
+  /* Typography — v2 폰트 패밀리 + body/caption 크기 */
+  --font-family: var(--ff);
+  --font-size-body: var(--fs-body);   /* 18px */
+  --font-size-caption: var(--fs-caption); /* 16px — v2 의 ≥16px 규칙 */
+
+  /* Layout & motion — 자체 유지 (v2 미정의) */
+  --content-max: 1640px; /* 페이지·크롬 컨텐츠 공통 최대폭(센터 정렬) = 헤더·푸터 장폭과 일치. */
+  /* 크롬(헤더·푸터) 좌우 엣지 패딩 — 컨텐츠가 max 미만 화면에서 가장자리에 붙지 않도록 */
+  --chrome-pad: clamp(20px, 3vw, 44px);
+  --header-h: 73px; /* sticky AppHeader 실측 높이(.row 72 + 하단 보더 1). 워시가 헤더 뒤로 올라가는 기준. */
+  /* 헤더 컨트롤(로그인·로그아웃·아바타·홈·테마 토글·검색 pill) 공통 높이.
+     전 헤더(AppHeader·DocsHeader)가 이 토큰을 공유 → 같은 높이·세로중앙 정렬, 폭만 다름.
+     크기를 키우려면 이 값 하나만 바꾸면 전 헤더가 함께 움직인다(단, 모바일 드로어의 토글 사용처도 같이 검토). */
+  --header-ctl-h: 36px;
+  --t-smooth: 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+  --t-quick: 0.2s ease;
+
+  /* 푸터 배경 — 라이트 모드 현행 톤(ink-deep). 다크에선 별도 surface 로 분리(아래 재고정). */
+  --footer-bg: #0A1E33;
+}
+
+/* 다크 모드 alias 재고정 — tokens.css 의 base --c-* 플립 때문에 잘못 반전되는
+ * semantic alias 만 여기서 바로잡는다. (base 팔레트는 tokens.css 다크 블록 소유)
+ * tokens.css 가 globals.css 보다 먼저 로드되므로(layout import 순서),
+ * 동일 specificity 에서 source order 상 globals 의 이 블록이 최종 승리. */
+[data-theme="dark"] {
+  /* --color-white 는 :root 에서 var(--c-canvas) → 다크에선 #0a1622 가 되어
+   * .btn:hover/.login:hover 등 'primary 위 흰 글자'가 깨진다. 흰색으로 재고정. */
+  --color-white: #ffffff;
+  /* 푸터: 다크에선 페이지 배경과 동일하게(요청). 상단 흰 헤어라인으로만 구분.
+   * (--c-ink-deep 는 다크에서 #fff 로 플립되므로 전용 토큰 사용 — 값은 페이지 bg.) */
+  --footer-bg: var(--c-canvas);
+  /* bullet: 다크 배경에선 primary 가 묻힘 → sky (§5-3 다크 강조색 규칙과 동일) */
+  --bullet-color: var(--c-sky);
+}
+
+/* Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  /* 스크롤바 거터 항상 예약 — 페이지 길이에 따라 스크롤바가 생기고 없어지며
+     중앙정렬 콘텐츠(헤더 로고 등)가 페이지마다 좌우로 밀리던 현상 제거(전 호스트 공통). */
+  scrollbar-gutter: stable;
+}
+
+html,
+body {
+  width: 100%;
+  min-height: 100%;
+  background-color: var(--bg);
+  font-family: var(--font-family);
+  color: var(--text-main);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color var(--t-smooth), color var(--t-smooth);
+}
+
+body {
+  font-size: var(--font-size-body);
+  font-weight: var(--fw-body); /* 본문 기본 weight = 500(Medium). 명시 weight(제목 700·strong 600 등)는 불변. */
+  line-height: 1.6;
+  letter-spacing: var(--tracking); /* v2: -0.01em */
+}
+
+/* 공통 헤더/푸터 셸 — 푸터를 항상 화면 하단에 고정 */
+body.appShell {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+.appShell .appMain {
+  flex: 1 0 auto;
+  /* flex 컬럼 — 자식이 flex:1 로 남은 높이를 채울 수 있게(예: StaticHero 단일 화면).
+   * 일반 콘텐츠 페이지는 자식이 기본 flex(0 1 auto)라 자연 높이로 그대로 흐름. */
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  color: var(--text-highlight);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+/* ───────────────────────────────────────────────
+ * 기본 버튼 = 아웃라인. hover 시 primary 채움.
+ * 전 서비스 공통 기본 버튼 스타일 (로그인 버튼과 동일 패턴).
+ * 새 버튼은 이 .btn 을 기본으로 사용하고, 필요한 레이아웃만 덧붙인다.
+ * ─────────────────────────────────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  padding: 0 22px;
+  border-radius: var(--r-ctl); /* Geist 정렬 — pill → 8px 컨트롤 */
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: var(--tracking);
+  color: var(--c-ink-deep);
+  background: transparent;
+  border: 1px solid var(--card-border);
+  text-decoration: none;
+  cursor: pointer;
+  transition: color var(--t-quick), background var(--t-quick),
+    border-color var(--t-quick);
+}
+
+.btn:hover {
+  color: var(--color-white);
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  text-decoration: none;
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* 솔리드 CTA 변형 (D3 정식화) — 아웃라인(.btn)이 **기본**, 주요 행동 1개에만 .btn.btn-solid 추가.
+ * 기본부터 primary 채움 + 흰 글자, hover 는 active 톤으로 짙어짐. 새 토큰 없이 기존 토큰 재사용.
+ * (다크에서도 --color-white 가 #fff 로 재고정돼 primary 위 흰 글자 유지 — globals 다크 블록.)
+ * 사용처 전환(home/coming-soon .bssc-login·claude.design .btn-primary)은 W2. */
+.btn-solid {
+  color: var(--color-white);
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.btn-solid:hover {
+  color: var(--color-white);
+  background: var(--c-primary-active);
+  border-color: var(--c-primary-active);
+}
+
+/* Utility container */
+.container {
+  width: 100%;
+  max-width: var(--content-max);
+  margin: 0 auto;
+  padding: 0 var(--chrome-pad); /* 헤더·푸터와 동일 좌우 엣지 패딩 */
+}
+
+@media (max-width: 640px) {
+  /* 모바일 좌우 페이지 거터 = 16px (웹/앱 표준: Tailwind px-4·iOS·Material).
+     전역 토큰 1개로 헤더·푸터·docs·.container 의 모바일 거터를 한꺼번에 통일한다.
+     (값을 바꾸려면 이 한 줄만 — 호출처는 모두 var(--chrome-pad) 를 가리킨다.) */
+  :root {
+    --chrome-pad: 16px;
+  }
+  .container {
+    padding: 0 var(--chrome-pad);
+  }
+}
