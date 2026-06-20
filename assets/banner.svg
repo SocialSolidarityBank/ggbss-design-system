@@ -1,97 +1,150 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 360" width="1200" height="360" role="img" aria-label="GGBSS Design System — 귀여운 은행을 브랜드 팔레트로 색칠하는 돼지 캐릭터">
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="360" viewBox="0 0 1200 360" role="img" aria-labelledby="title desc">
+  <title id="title">GGBSS Design System banner</title>
+  <desc id="desc">A cute pig character lovingly paints a friendly bank building with GGBSS brand colors, alongside the GGBSS Design System title and palette dots.</desc>
+
   <defs>
-    <linearGradient id="wash" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#E7F3FF"/>
-      <stop offset="1" stop-color="#FFFFFF"/>
+    <linearGradient id="bgWash" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#CDEAFF"/>
+      <stop offset="0.58" stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#ECF0F3"/>
     </linearGradient>
+    <linearGradient id="bankFace" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#ECF0F3"/>
+    </linearGradient>
+    <linearGradient id="roofBlue" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#58C5FF"/>
+      <stop offset="0.52" stop-color="#006CB7"/>
+      <stop offset="1" stop-color="#26257C"/>
+    </linearGradient>
+    <linearGradient id="pigPink" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FBD3DE"/>
+      <stop offset="1" stop-color="#F4A7BB"/>
+    </linearGradient>
+    <linearGradient id="rollerPaint" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#338BC9"/>
+      <stop offset="1" stop-color="#006CB7"/>
+    </linearGradient>
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="8" stdDeviation="8" flood-color="#0A1E33" flood-opacity="0.13"/>
+    </filter>
   </defs>
 
-  <rect width="1200" height="360" fill="url(#wash)"/>
+  <rect width="1200" height="360" fill="url(#bgWash)"/>
+  <circle cx="168" cy="76" r="64" fill="#FFFFFF" opacity="0.5"/>
+  <circle cx="513" cy="287" r="88" fill="#CDEAFF" opacity="0.55"/>
+  <path d="M0 300 C150 270 274 328 438 290 C575 258 706 278 840 318 C969 357 1092 319 1200 289 L1200 360 L0 360 Z" fill="#FFFFFF" opacity="0.8"/>
 
-  <!-- ground -->
-  <ellipse cx="330" cy="316" rx="250" ry="14" fill="#D7E6F3"/>
+  <g filter="url(#softShadow)">
+    <ellipse cx="285" cy="309" rx="240" ry="23" fill="#0A1E33" opacity="0.1"/>
 
-  <!-- bank -->
-  <rect x="118" y="298" width="424" height="16" rx="4" fill="#DCE7F1"/>
-  <rect x="142" y="284" width="376" height="16" rx="4" fill="#EDF3F9"/>
-  <rect x="170" y="150" width="320" height="134" fill="#FFFFFF" stroke="#D6E1EC" stroke-width="1.5"/>
+    <g aria-label="friendly bank building">
+      <rect x="86" y="128" width="330" height="160" rx="22" fill="url(#bankFace)"/>
+      <rect x="70" y="276" width="362" height="30" rx="15" fill="#26257C"/>
+      <rect x="94" y="250" width="314" height="35" rx="14" fill="#006CB7"/>
+      <path d="M82 133 L251 50 L420 133 Z" fill="url(#roofBlue)"/>
+      <path d="M109 128 L251 60 L393 128 Z" fill="#338BC9" opacity="0.42"/>
+      <path d="M82 133 L420 133 L406 153 L96 153 Z" fill="#26257C"/>
+      <circle cx="251" cy="107" r="24" fill="#FAA41A"/>
+      <circle cx="251" cy="107" r="17" fill="#FFFFFF" opacity="0.22"/>
+      <text x="251" y="116" text-anchor="middle" font-family="Pretendard, system-ui, sans-serif" font-size="24" font-weight="800" fill="#0A1E33">₩</text>
 
-  <!-- columns -->
-  <g fill="#FFFFFF" stroke="#D9E3ED" stroke-width="1.5">
-    <rect x="182" y="178" width="28" height="104" rx="8"/>
-    <rect x="252" y="178" width="28" height="104" rx="8"/>
-    <rect x="380" y="178" width="28" height="104" rx="8"/>
-    <rect x="450" y="178" width="28" height="104" rx="8"/>
+      <rect x="125" y="157" width="42" height="100" rx="14" fill="#FFFFFF"/>
+      <rect x="203" y="157" width="42" height="100" rx="14" fill="#FFFFFF"/>
+      <rect x="281" y="157" width="42" height="100" rx="14" fill="#FFFFFF"/>
+      <rect x="359" y="157" width="24" height="100" rx="12" fill="#FFFFFF"/>
+      <rect x="119" y="154" width="54" height="12" rx="6" fill="#CDEAFF"/>
+      <rect x="197" y="154" width="54" height="12" rx="6" fill="#CDEAFF"/>
+      <rect x="275" y="154" width="54" height="12" rx="6" fill="#CDEAFF"/>
+      <rect x="351" y="154" width="40" height="12" rx="6" fill="#CDEAFF"/>
+      <rect x="119" y="252" width="54" height="12" rx="6" fill="#CDEAFF"/>
+      <rect x="197" y="252" width="54" height="12" rx="6" fill="#CDEAFF"/>
+      <rect x="275" y="252" width="54" height="12" rx="6" fill="#CDEAFF"/>
+      <rect x="351" y="252" width="40" height="12" rx="6" fill="#CDEAFF"/>
+
+      <path d="M227 248 L227 217 C227 196 243 180 264 180 C285 180 301 196 301 217 L301 248 Z" fill="#0A1E33"/>
+      <path d="M241 248 L241 218 C241 205 251 195 264 195 C277 195 287 205 287 218 L287 248 Z" fill="#338BC9"/>
+      <circle cx="278" cy="224" r="3" fill="#FAA41A"/>
+
+      <rect x="133" y="189" width="28" height="21" rx="7" fill="#58C5FF" opacity="0.8"/>
+      <rect x="361" y="189" width="20" height="21" rx="7" fill="#58C5FF" opacity="0.8"/>
+      <path d="M148 225 Q157 234 166 225" fill="none" stroke="#0A1E33" stroke-width="4" stroke-linecap="round"/>
+      <path d="M350 225 Q359 234 368 225" fill="none" stroke="#0A1E33" stroke-width="4" stroke-linecap="round"/>
+      <circle cx="132" cy="221" r="6" fill="#FBD3DE" opacity="0.8"/>
+      <circle cx="384" cy="221" r="6" fill="#FBD3DE" opacity="0.8"/>
+
+      <path d="M326 119 C349 103 376 101 405 113 L397 132 C369 123 347 126 331 137 Z" fill="#58C5FF"/>
+      <path d="M310 143 C337 130 370 130 407 142 L407 156 L310 156 Z" fill="#006CB7"/>
+      <circle cx="374" cy="137" r="5" fill="#FFFFFF" opacity="0.7"/>
+    </g>
+
+    <g aria-label="paint bucket and blobs">
+      <ellipse cx="451" cy="304" rx="47" ry="9" fill="#0A1E33" opacity="0.12"/>
+      <path d="M417 252 L479 252 L468 303 L428 303 Z" fill="#FFFFFF"/>
+      <path d="M417 252 C417 244 479 244 479 252 C479 261 417 261 417 252 Z" fill="#006CB7"/>
+      <path d="M430 264 C446 271 458 253 475 262 L468 303 L428 303 Z" fill="#338BC9"/>
+      <path d="M433 249 C439 232 460 232 466 249" fill="none" stroke="#7B7875" stroke-width="5" stroke-linecap="round"/>
+      <circle cx="488" cy="288" r="9" fill="#006CB7"/>
+      <circle cx="515" cy="305" r="6" fill="#58C5FF"/>
+      <path d="M401 294 C392 288 396 276 407 277 C419 278 420 293 410 298 C407 300 404 298 401 294 Z" fill="#F16A26"/>
+      <circle cx="382" cy="306" r="5" fill="#00A775"/>
+    </g>
+
+    <g aria-label="adorable pig painter">
+      <ellipse cx="563" cy="309" rx="86" ry="19" fill="#0A1E33" opacity="0.11"/>
+      <path d="M501 201 C488 185 493 167 512 160 C524 171 528 187 521 204 Z" fill="#F4A7BB"/>
+      <path d="M604 201 C615 184 610 166 591 160 C579 172 576 189 583 205 Z" fill="#F4A7BB"/>
+      <circle cx="552" cy="221" r="66" fill="url(#pigPink)"/>
+      <circle cx="552" cy="250" r="55" fill="#FBD3DE"/>
+      <circle cx="552" cy="223" r="36" fill="#FBD3DE"/>
+      <ellipse cx="552" cy="231" rx="25" ry="17" fill="#EC8FA6"/>
+      <circle cx="543" cy="231" r="4" fill="#0A1E33" opacity="0.72"/>
+      <circle cx="562" cy="231" r="4" fill="#0A1E33" opacity="0.72"/>
+      <path d="M537 248 Q552 260 567 248" fill="none" stroke="#0A1E33" stroke-width="5" stroke-linecap="round"/>
+      <circle cx="524" cy="237" r="10" fill="#EC8FA6" opacity="0.45"/>
+      <circle cx="580" cy="237" r="10" fill="#EC8FA6" opacity="0.45"/>
+
+      <circle cx="529" cy="211" r="8" fill="#0A1E33"/>
+      <circle cx="575" cy="211" r="8" fill="#0A1E33"/>
+      <circle cx="532" cy="207" r="3.2" fill="#FFFFFF"/>
+      <circle cx="578" cy="207" r="3.2" fill="#FFFFFF"/>
+      <path d="M520 195 L513 188 M587 195 L594 188" stroke="#0A1E33" stroke-width="4" stroke-linecap="round"/>
+      <path d="M546 188 L551 177 L556 188 L567 193 L556 198 L551 209 L546 198 L535 193 Z" fill="#FFFFFF" opacity="0.88"/>
+      <path d="M592 183 L595 176 L599 183 L606 186 L599 190 L595 197 L592 190 L585 186 Z" fill="#FFFFFF" opacity="0.82"/>
+
+      <path d="M503 245 C472 229 458 202 466 181" fill="none" stroke="#F4A7BB" stroke-width="18" stroke-linecap="round"/>
+      <path d="M466 181 L408 139" fill="none" stroke="#7B7875" stroke-width="7" stroke-linecap="round"/>
+      <rect x="376" y="118" width="70" height="22" rx="11" transform="rotate(35 411 129)" fill="url(#rollerPaint)"/>
+      <rect x="380" y="123" width="62" height="7" rx="3.5" transform="rotate(35 411 129)" fill="#58C5FF" opacity="0.55"/>
+
+      <path d="M604 248 C629 259 637 283 624 300" fill="none" stroke="#F4A7BB" stroke-width="18" stroke-linecap="round"/>
+      <circle cx="624" cy="300" r="10" fill="#EC8FA6"/>
+      <path d="M516 287 C501 305 479 304 469 287" fill="none" stroke="#EC8FA6" stroke-width="16" stroke-linecap="round"/>
+      <path d="M588 287 C603 305 625 304 635 287" fill="none" stroke="#EC8FA6" stroke-width="16" stroke-linecap="round"/>
+      <path d="M640 253 C664 245 668 222 648 216 C666 232 655 244 640 253 Z" fill="none" stroke="#EC8FA6" stroke-width="8" stroke-linecap="round"/>
+    </g>
   </g>
-  <g fill="#EEF4F9">
-    <rect x="178" y="172" width="36" height="9" rx="3"/>
-    <rect x="248" y="172" width="36" height="9" rx="3"/>
-    <rect x="376" y="172" width="36" height="9" rx="3"/>
-    <rect x="446" y="172" width="36" height="9" rx="3"/>
+
+  <g aria-label="brand title text">
+    <text x="705" y="128" font-family="Pretendard, system-ui, sans-serif" font-size="78" font-weight="800" fill="#0A1E33" letter-spacing="0">GGBSS</text>
+    <text x="708" y="184" font-family="Pretendard, system-ui, sans-serif" font-size="42" font-weight="800" fill="#006CB7">Design System</text>
+    <text x="710" y="224" font-family="Pretendard, system-ui, sans-serif" font-size="18" font-weight="600" fill="#454745">ggbss.or.kr 라이브 디자인 시스템 · SSOT</text>
+
+    <g transform="translate(710 260)">
+      <circle cx="0" cy="0" r="12" fill="#006CB7"/>
+      <circle cx="36" cy="0" r="12" fill="#338BC9"/>
+      <circle cx="72" cy="0" r="12" fill="#26257C"/>
+      <circle cx="108" cy="0" r="12" fill="#58C5FF"/>
+      <circle cx="144" cy="0" r="12" fill="#00A775"/>
+      <circle cx="180" cy="0" r="12" fill="#FAA41A"/>
+      <circle cx="216" cy="0" r="12" fill="#F16A26"/>
+    </g>
   </g>
 
-  <!-- arched door -->
-  <path d="M300 284 L300 244 Q300 216 330 216 Q360 216 360 244 L360 284 Z" fill="#CDEAFF" stroke="#9CC7E8" stroke-width="1.5"/>
-  <circle cx="352" cy="252" r="3" fill="#006CB7"/>
-
-  <!-- entablature (being painted) -->
-  <rect x="160" y="150" width="340" height="26" rx="4" fill="#006CB7"/>
-  <!-- fresh sky paint patch -->
-  <rect x="404" y="150" width="96" height="26" rx="4" fill="#58C5FF"/>
-  <rect x="404" y="150" width="10" height="26" fill="#7FD3FF"/>
-
-  <!-- pediment -->
-  <path d="M150 150 L510 150 L330 90 Z" fill="#26257C"/>
-  <circle cx="330" cy="126" r="19" fill="#FFFFFF"/>
-  <text x="330" y="134" text-anchor="middle" font-family="system-ui, sans-serif" font-size="22" font-weight="700" fill="#006CB7">₩</text>
-
-  <!-- paint bucket -->
-  <path d="M566 290 l44 0 -6 30 -32 0 Z" fill="#ECF0F3" stroke="#C7D2DD" stroke-width="1.5"/>
-  <ellipse cx="588" cy="290" rx="22" ry="6" fill="#006CB7"/>
-  <path d="M568 290 q20 -16 40 0" fill="none" stroke="#9AA6B2" stroke-width="2"/>
-
-  <!-- pig -->
-  <path d="M566 250 q16 -2 13 -16 q-2 -11 -13 -6" fill="none" stroke="#F0A0B6" stroke-width="6" stroke-linecap="round"/>
-  <ellipse cx="520" cy="264" rx="48" ry="44" fill="#F4A9BD"/>
-  <ellipse cx="520" cy="276" rx="31" ry="26" fill="#FBD3DE"/>
-  <rect x="500" y="298" width="15" height="20" rx="7" fill="#F4A9BD"/>
-  <rect x="524" y="298" width="15" height="20" rx="7" fill="#F4A9BD"/>
-  <!-- front arm to roller -->
-  <path d="M486 244 Q470 226 458 206" fill="none" stroke="#F4A9BD" stroke-width="13" stroke-linecap="round"/>
-  <!-- roller -->
-  <line x1="458" y1="206" x2="438" y2="176" stroke="#8A94A0" stroke-width="5" stroke-linecap="round"/>
-  <rect x="416" y="150" width="40" height="16" rx="6" fill="#58C5FF" stroke="#2FA8E8" stroke-width="1.5"/>
-  <!-- head -->
-  <path d="M500 190 q-8 -24 14 -19 q-1 13 -8 22 Z" fill="#EC8FA6"/>
-  <path d="M540 190 q8 -24 -14 -19 q1 13 8 22 Z" fill="#EC8FA6"/>
-  <circle cx="520" cy="214" r="37" fill="#F4A9BD"/>
-  <circle cx="500" cy="222" r="5.5" fill="#F7C2D0"/>
-  <circle cx="540" cy="222" r="5.5" fill="#F7C2D0"/>
-  <ellipse cx="520" cy="224" rx="18" ry="13" fill="#EC8FA6"/>
-  <ellipse cx="513" cy="224" rx="2.6" ry="3.6" fill="#B5536C"/>
-  <ellipse cx="527" cy="224" rx="2.6" ry="3.6" fill="#B5536C"/>
-  <circle cx="507" cy="206" r="3.8" fill="#2A2233"/>
-  <circle cx="533" cy="206" r="3.8" fill="#2A2233"/>
-  <circle cx="508.4" cy="204.6" r="1.2" fill="#FFFFFF"/>
-  <circle cx="534.4" cy="204.6" r="1.2" fill="#FFFFFF"/>
-  <path d="M511 236 q9 7 18 0" fill="none" stroke="#B5536C" stroke-width="2" stroke-linecap="round"/>
-
-  <!-- paint blobs (palette) -->
-  <circle cx="120" cy="250" r="9" fill="#00A775"/>
-  <circle cx="96" cy="286" r="7" fill="#FAA41A"/>
-  <circle cx="560" cy="150" r="8" fill="#F16A26"/>
-
-  <!-- title -->
-  <text x="648" y="172" font-family="'Pretendard', system-ui, sans-serif" font-size="68" font-weight="800" letter-spacing="-1.5" fill="#0A1E33">GGBSS</text>
-  <text x="650" y="226" font-family="'Pretendard', system-ui, sans-serif" font-size="40" font-weight="700" fill="#006CB7">Design System</text>
-  <text x="652" y="262" font-family="'Pretendard', system-ui, sans-serif" font-size="19" font-weight="500" fill="#5A6470">ggbss.or.kr 라이브 디자인 시스템 · SSOT</text>
-  <g>
-    <circle cx="660" cy="296" r="10" fill="#006CB7"/>
-    <circle cx="690" cy="296" r="10" fill="#58C5FF"/>
-    <circle cx="720" cy="296" r="10" fill="#26257C"/>
-    <circle cx="750" cy="296" r="10" fill="#00A775"/>
-    <circle cx="780" cy="296" r="10" fill="#FAA41A"/>
-    <circle cx="810" cy="296" r="10" fill="#F16A26"/>
-    <circle cx="840" cy="296" r="10" fill="#0A1E33"/>
+  <g opacity="0.95">
+    <path d="M986 84 L991 72 L997 84 L1009 90 L997 96 L991 108 L986 96 L974 90 Z" fill="#58C5FF"/>
+    <path d="M1088 236 L1093 226 L1098 236 L1108 241 L1098 246 L1093 256 L1088 246 L1078 241 Z" fill="#FAA41A"/>
+    <circle cx="1038" cy="64" r="5" fill="#00A775"/>
+    <circle cx="1124" cy="114" r="6" fill="#CDEAFF"/>
   </g>
 </svg>
